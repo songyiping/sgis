@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sgis.dao.UploadFileDao">
+	<!-- 定义数据库字段与实体对象的映射关系 -->
+	<resultMap id="uploadFileMap" type="com.sgis.entity.UploadFile">
+		<id column="file_id" jdbcType="VARCHAR" property="fileId" />
+		<result column="news_id" jdbcType="VARCHAR" property="onlyNewsId" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="last_time" jdbcType="TIMESTAMP" property="lastTime" />
+		<result column="md5" jdbcType="VARCHAR" property="md5" />
+		<result column="url" jdbcType="VARCHAR" property="url" />
+		<result column="size" jdbcType="DOUBLE" property="size" />
+		<result column="type" jdbcType="VARCHAR" property="type" />
+		<result column="is_visible" jdbcType="INTEGER" property="isVisible" />
+		<result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+		<result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+		<result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+		<association property="user" column="user_id" javaType="com.sgis.entity.User" resultMap="com.sgis.dao.UserDao.userMap"></association>
+	</resultMap>
+
+
+	<select id="getUploadFileById" resultMap="uploadFileMap">
+		SELECT * FROM basic_upload_file WHERE id = #{id}
+	</select>
+
+	<insert id="addUploadFile" parameterType="com.sgis.entity.UploadFile">
+		insert into basic_upload_file
+		(file_id,news_id, create_time,md5,url,size,type,user_id,start_time, end_time)
+		values
+		(
+		#{uploadFile.fileId,jdbcType=VARCHAR},
+		#{uploadFile.onlyNewsId,jdbcType=VARCHAR},
+		#{uploadFile.createTime,jdbcType=TIMESTAMP},
+		#{uploadFile.md5,jdbcType=VARCHAR},
+		#{uploadFile.url,jdbcType=VARCHAR},
+		#{uploadFile.size,jdbcType=VARCHAR},
+		#{uploadFile.type,jdbcType=VARCHAR},
+		#{uploadFile.user.userId,jdbcType=VARCHAR},
+		#{uploadFile.startTime,jdbcType=TIMESTAMP},
+		#{uploadFile.endTime,jdbcType=TIMESTAMP})
+	</insert>
+
+
+</mapper>

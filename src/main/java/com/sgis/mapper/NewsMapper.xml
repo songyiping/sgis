@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sgis.dao.NewsDao">
+	<resultMap id="newsMap" type="com.sgis.entity.News">
+		<id column="news_id" jdbcType="VARCHAR" property="newsId" />
+		<result column="main_title" jdbcType="VARCHAR" property="mainTitle" />
+		<result column="second_title" jdbcType="VARCHAR" property="secondTitle" />
+		<result column="author" jdbcType="VARCHAR" property="author" />
+		<result column="view_count" jdbcType="INTEGER" property="viewCount" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+		<result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+		<result column="is_top" jdbcType="INTEGER" property="isTop" />
+		<result column="is_visible" jdbcType="INTEGER" property="isVisible" />
+		<result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+		<result column="text" jdbcType="LONGVARCHAR" property="text" />
+		<association property="newsType" column="news_type_id" javaType="com.sgis.entity.NewsType">
+			<id column="news_type_id" jdbcType="VARCHAR" property="newsTypeId" />
+			<result column="news_type_name" jdbcType="VARCHAR" property="newsTypeName" />
+			<result column="pic_enable" jdbcType="INTEGER" property="picEnable" />
+			<result column="video_enable" jdbcType="INTEGER" property="videoEnable" />
+		</association>
+		<association property="user" column="user_id" javaType="com.sgis.entity.User">
+			<id column="user_id" jdbcType="VARCHAR" property="userId" />
+			<result column="user_name" jdbcType="VARCHAR" property="name" />
+		</association>
+		<collection property="picList" ofType="com.sgis.entity.UploadFile">
+			<id column="pic_file_id" jdbcType="VARCHAR" property="id" />
+			<result column="pic_type" jdbcType="VARCHAR" property="type" />
+			<result column="pic_size" jdbcType="VARCHAR" property="size" />
+			<result column="pic_url" jdbcType="VARCHAR" property="url" />
+		</collection>
+		<collection property="videoList" ofType="com.sgis.entity.UploadFile">
+			<id column="video_file_id" jdbcType="VARCHAR" property="id" />
+			<result column="video_type" jdbcType="VARCHAR" property="type" />
+			<result column="video_size" jdbcType="VARCHAR" property="size" />
+			<result column="video_url" jdbcType="VARCHAR" property="url" />
+		</collection>
+	</resultMap>
+
+	<select id="getNewsById" parameterType="string" resultMap="newsMap">
+		SELECT
+		n.news_id as news_id,
+		n.main_title as main_title,
+		n.second_title as second_title,
+		n.author as author,
+		n.view_count as view_count,
+		n.create_time as create_time,
+		n.update_time as update_time,
+		n.start_time as start_time,
+		n.end_time as end_time,
+		n.is_top as is_top,
+		n.is_visible as is_visible,
+		n.is_delete as is_delete,
+		n.remark as remark,
+		n.text as text,
+		t.news_type_id as news_type_id,
+		t.news_type_name as news_type_name,
+		t.pic_enable as pic_enable,
+		t.video_enable as video_enable,
+		u.user_id as user_id,
+		u.user_name as user_name,
+		p.file_id as pic_file_id,
+		p.type as pic_type,
+		p.size as pic_size,
+		p.url as pic_url,
+		v.file_id as video_file_id,
+		v.type as video_type,
+		v.size as video_size,
+		v.url as video_url
+		FROM basic_news n
+		left join basic_news_type t on
+		n.news_type_id = t.news_type_id
+		left join basic_user u on n.user_id = u.user_id
+		left join basic_upload_file p on n.news_id = p.news_id and p.type like CONCAT('%',"image",'%')
+		left join basic_upload_file v on n.news_id = v.news_id and v.type like CONCAT('%',"video",'%')
+		WHERE n.news_id = #{id}
+	</select>
+
+
+	<insert id="addNews" parameterType="com.sgis.entity.News">
+		insert into basic_news
+		(news_id, news_type_id,
+		main_title, second_title,
+		author,
+		user_id,create_time,
+		start_time, end_time,
+		remark, text)
+		values
+		(#{news.newsId,jdbcType=VARCHAR},
+		#{news.newsType.newsTypeId,jdbcType=VARCHAR},
+		#{news.mainTitle,jdbcType=VARCHAR},
+		#{news.secondTitle,jdbcType=VARCHAR},
+		#{news.author,jdbcType=VARCHAR},
+		#{news.user.userId,jdbcType=VARCHAR},
+		#{news.createTime,jdbcType=TIMESTAMP},
+		#{news.startTime,jdbcType=TIMESTAMP},
+		#{news.endTime,jdbcType=TIMESTAMP},
+		#{news.remark,jdbcType=VARCHAR},
+		#{news.text,jdbcType=LONGVARCHAR})
+	</insert>
+
+	<update id="updateNews" parameterType="com.sgis.entity.News">
+		update basic_news
+		<trim prefix="SET" prefixOverrides="," suffixOverrides=",">
+			<if test="news.newsType != null and news.newsType.newsTypeId != null">news_type_id = #{news.newsType.newsTypeId,jdbcType=VARCHAR},
+			</if>
+			<if test="news.mainTitle != null">main_title = #{news.mainTitle,jdbcType=VARCHAR},</if>
+			<if test="news.secondTitle != null">second_title = #{news.secondTitle,jdbcType=VARCHAR},</if>
+			<if test="news.author != null">author = #{news.author,jdbcType=VARCHAR},</if>
+			<if test="news.user != null and news.user.userId != null">user_id = #{news.user.userId,jdbcType=VARCHAR},</if>
+			<if test="news.viewCount != null">view_count = #{news.viewCount,jdbcType=INTEGER},</if>
+			<if test="news.updateTime != null">update_time = #{news.updateTime,jdbcType=TIMESTAMP},</if>
+			<if test="news.startTime != null">start_time = #{news.startTime,jdbcType=TIMESTAMP},</if>
+			<if test="news.endTime != null">end_time = #{news.endTime,jdbcType=TIMESTAMP},</if>
+			<if test="news.isTop != null">is_top = #{news.isTop,jdbcType=INTEGER},</if>
+			<if test="news.isVisible != null and news.isVisible != 0">is_visible = #{news.isVisible,jdbcType=INTEGER},</if>
+			<if test="news.isDelete != null and news.isDelete !=0">is_delete = #{news.isDelete,jdbcType=INTEGER},</if>
+			<if test="news.remark != null">remark = #{news.remark,jdbcType=VARCHAR},</if>
+			<if test="news.text != null">text = #{news.text,jdbcType=LONGVARCHAR}</if>
+		</trim>
+		where news_id = #{news.newsId,jdbcType=VARCHAR}
+	</update>
+
+	<select id="getNewsList" resultMap="newsMap">
+		SELECT
+		n.news_id as news_id,
+		n.main_title as main_title,
+		n.second_title as second_title,
+		n.author as author,
+		n.view_count as view_count,
+		n.create_time as create_time,
+		n.update_time as update_time,
+		n.start_time as start_time,
+		n.end_time as end_time,
+		n.is_top as is_top,
+		n.is_visible as is_visible,
+		n.is_delete as is_delete,
+		n.remark as remark,
+		n.text as text,
+		t.news_type_id as news_type_id,
+		t.news_type_name as news_type_name,
+		t.pic_enable as pic_enable,
+		t.video_enable as video_enable,
+		u.user_id as user_id,
+		u.user_name as user_name,
+		p.file_id as pic_file_id,
+		p.type as pic_type,
+		p.size as pic_size,
+		p.url as pic_url,
+		v.file_id as video_file_id,
+		v.type as video_type,
+		v.size as video_size,
+		v.url as video_url
+		FROM basic_news n
+		left join basic_news_type t on n.news_type_id = t.news_type_id
+		left join basic_user u on n.user_id =
+		u.user_id
+		left join basic_upload_file p on n.news_id = p.news_id and p.type like CONCAT('%',"image",'%')
+		left join basic_upload_file v on n.news_id = v.news_id and v.type like CONCAT('%',"video",'%')
+
+		<trim prefix="WHERE" prefixOverrides="AND |OR ">
+			<if test="news.mainTitle != null">
+				AND n.main_title like CONCAT('%',#{news.mainTitle},'%')
+			</if>
+			<if test="news.secondTitle != null">
+				n.second_title like CONCAT('%',#{news.secondTitle},'%')
+			</if>
+			<if test="news.author != null">
+				AND n.author like CONCAT('%',#{news.author},'%')
+			</if>
+			<if test="news.isDelete != 0 and news.isDelete != null">
+				AND n.is_delete = #{news.isDelete}
+			</if>
+			<if test="news.isVisible != 0 and news.isVisible != null">
+				AND n.is_visible = #{news.isVisible}
+			</if>
+
+			<if test="news.user != null and news.user.userId != null">
+				AND n.user_id = #{news.user.userId}
+			</if>
+			<if test="news.newsType != null and news.newsType.newsTypeId != null">
+				AND n.news_type_id = #{news.newsType.newsTypeId}
+			</if>
+		</trim>
+		ORDER BY n.is_top DESC,n.create_time DESC
+		<trim prefix="LIMIT" prefixOverrides=",">
+			<if test="chooseNum != null and pageSize !=null">
+				#{chooseNum}, #{pageSize}
+			</if>
+		</trim>
+	</select>
+
+	<select id="getNewsCount" resultType="int" parameterType="com.sgis.entity.News">
+		SELECT COUNT(*) FROM basic_news
+		<trim prefix="WHERE" prefixOverrides="AND |OR ">
+			<if test="news.mainTitle != null">
+				AND main_title like CONCAT('%',#{news.mainTitle},'%')
+			</if>
+			<if test="news.secondTitle != null">
+				second_title like CONCAT('%',#{news.secondTitle},'%')
+			</if>
+			<if test="news.author != null">
+				AND author like CONCAT('%',#{news.author},'%')
+			</if>
+			<if test="news.isDelete != 0 and news.isDelete != null">
+				AND is_delete = #{news.isDelete}
+			</if>
+			<if test="news.isVisible != 0 and news.isVisible != null">
+				AND is_visible = #{news.isVisible}
+			</if>
+
+			<if test="news.user != null and news.user.userId != null">
+				AND user_id = #{news.user.userId}
+			</if>
+			<if test="news.newsType != null and news.newsType.newsTypeId != null">
+				AND news_type_id = #{news.newsType.newsTypeId}
+			</if>
+		</trim>
+	</select>
+</mapper>

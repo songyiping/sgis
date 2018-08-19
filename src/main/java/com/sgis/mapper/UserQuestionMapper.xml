@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sgis.dao.UserQuestionDao">
+	<!-- 定义数据库字段与实体对象的映射关系 -->
+	<resultMap id="userQuestionMap" type="com.sgis.entity.UserQuestion">
+		<id column="id" jdbcType="VARCHAR" property="id" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="text" jdbcType="VARCHAR" property="text" />
+		<result column="os_name" jdbcType="VARCHAR" property="osName" />
+		<result column="address" jdbcType="VARCHAR" property="address" />
+		<result column="handTab" jdbcType="INTEGER" property="handTab" />
+		<result column="user_agent" jdbcType="VARCHAR" property="userAgent" />
+		<result column="ip" jdbcType="VARCHAR" property="ip" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="handling_time" jdbcType="TIMESTAMP" property="handlingTime" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+		<result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+		<association property="user" column="user_id" javaType="com.sgis.entity.User">
+			<id column="user_id" jdbcType="VARCHAR" property="userId" />
+			<result column="user_name" jdbcType="VARCHAR" property="name" />
+		</association>
+	</resultMap>
+
+
+	<select id="getUserQuestionById" resultMap="userQuestionMap">
+		SELECT
+		q.name as name,
+		q.email as email,
+		q.text as text,
+		q.os_name as osName,
+		q.address as address,
+		q.user_agent as userAgent,
+		q.ip as ip,
+		q.handTab as handTab,
+		q.create_time as createTime,
+		q.handling_time as handlingTime,
+		q.remark as remark,
+		q.is_delete as isDelete,
+		u.user_id as user_id,
+		u.user_name as user_name
+		FROM basic_user_question q
+		left join basic_user u on q.user_id = u.user_id
+		WHERE q.id = #{id}
+	</select>
+
+	<insert id="addUserQuestion" parameterType="com.sgis.entity.UserQuestion">
+		insert into basic_user_question (id, name,email, text,handTab,
+		os_name,address,user_agent, ip, create_time, remark)
+		values (
+		#{userQuestion.id,jdbcType=VARCHAR},
+		#{userQuestion.name,jdbcType=VARCHAR},
+		#{userQuestion.email,jdbcType=VARCHAR},
+		#{userQuestion.text,jdbcType=VARCHAR},
+		#{userQuestion.handTab,jdbcType=INTEGER},
+		#{userQuestion.osName,jdbcType=VARCHAR},
+		#{userQuestion.address,jdbcType=VARCHAR},
+		#{userQuestion.userAgent,jdbcType=VARCHAR},
+		#{userQuestion.ip,jdbcType=VARCHAR},
+		#{userQuestion.createTime,jdbcType=TIMESTAMP},
+		#{userQuestion.remark,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="updateuserQuestion" parameterType="com.sgis.entity.UserQuestion">
+		update basic_user_question
+		<trim prefix="SET" prefixOverrides="," suffixOverrides=",">
+			<if test="userQuestion.name != null">name = #{userQuestion.name,jdbcType=VARCHAR},</if>
+			<if test="userQuestion.email != null">email = #{userQuestion.email,jdbcType=VARCHAR},</if>
+			<if test="userQuestion.text != null">text = #{userQuestion.text,jdbcType=VARCHAR},</if>
+			<if test="userQuestion.osName != null">osName = #{userQuestion.osName,jdbcType=VARCHAR},</if>
+			<if test="userQuestion.userAgent != null">userAgent = #{userQuestion.userAgent,jdbcType=VARCHAR},</if>	
+			<if test="userQuestion.address != null">address = #{userQuestion.address,jdbcType=VARCHAR},</if>
+			<if test="userQuestion.ip != null">ip = #{userQuestion.ip,jdbcType=VARCHAR},</if>
+			<if test="userQuestion.remark != null">remark = #{userQuestion.remark,jdbcType=VARCHAR},</if>
+			<if test="userQuestion.createTime != null">createTime = #{userQuestion.createTime,jdbcType=TIMESTAMP},</if>
+			<if test="userQuestion.handlingTime != null">handlingTime = #{userQuestion.handlingTime,jdbcType=TIMESTAMP},</if>			
+			<if test="userQuestion.handTab != null and userQuestion.handTab != 0">handTabe = #{userQuestion.handTab,jdbcType=INTEGER},</if>
+			<if test="userQuestion.isDelete != null and userQuestion.isDelete !=0">is_delete = #{userQuestion.isDelete,jdbcType=INTEGER},</if>
+			
+			<if test="userQuestion.user != null and userQuestion.user.userId != null">user_id = #{userQuestion.user.userId,jdbcType=VARCHAR},</if>
+		</trim>
+		where id = #{userQuestion.id,jdbcType=VARCHAR}
+	</update>
+
+	<select id="getUserQuestionList" resultMap="userQuestionMap">
+		SELECT
+		q.name as name,
+		q.email as email,
+		q.text as text,
+		q.os_name as osName,
+		q.address as address,
+		q.user_agent as userAgent,
+		q.ip as ip,
+		q.handTab as handTab,
+		q.create_time as createTime,
+		q.handling_time as handlingTime,
+		q.remark as remark,
+		q.is_delete as isDelete,
+		u.user_id as user_id,
+		u.user_name as user_name
+		FROM basic_user_question q
+		left join basic_user u on q.user_id = u.user_id
+
+		<trim prefix="WHERE" prefixOverrides="AND |OR ">
+			<if test="userQuestion.name != null">
+				AND q.name like CONCAT('%',#{userQuestion.name},'%')
+			</if>
+			<if test="userQuestion.email != null">
+				AND q.email like CONCAT('%',#{userQuestion.email},'%')
+			</if>
+			<if test="userQuestion.address != null">
+				AND q.address like CONCAT('%',#{userQuestion.address},'%')
+			</if>
+			<if test="userQuestion.ip != null">
+				AND q.ip = #{userQuestion.ip},
+			</if>
+			<if test="userQuestion.handTab != 0 and userQuestion.handTab != null">
+				AND q.handTab = #{userQuestion.handTab}
+			</if>
+			<if test="userQuestion.osName != null">
+				AND q.osName = #{userQuestion.osName},
+			</if>
+			<if test="userQuestion.text != null">
+				AND q.text like CONCAT('%',#{userQuestion.text},'%')
+			</if>
+			<if test="userQuestion.isDelete != 0 and userQuestion.isDelete != null">
+				AND q.is_delete = #{userQuestion.isDelete}
+			</if>
+			<if test="userQuestion.user != null and userQuestion.user.userId != null">
+				AND n.user_id = #{userQuestion.user.userId}
+			</if>
+		</trim>
+		ORDER BY q.create_time DESC
+		<trim prefix="LIMIT" prefixOverrides=",">
+			<if test="chooseNum != null and pageSize !=null">
+				#{chooseNum}, #{pageSize}
+			</if>
+		</trim>
+	</select>
+
+	<select id="getUserQuestionCount" resultType="int" parameterType="com.sgis.entity.UserQuestion">
+		SELECT COUNT(*) FROM basic_user_question
+		<trim prefix="WHERE" prefixOverrides="AND |OR ">
+			<if test="userQuestion.name != null">
+				AND name like CONCAT('%',#{userQuestion.name},'%')
+			</if>
+			<if test="userQuestion.email != null">
+				AND email like CONCAT('%',#{userQuestion.email},'%')
+			</if>
+			<if test="userQuestion.address != null">
+				AND address like CONCAT('%',#{userQuestion.address},'%')
+			</if>
+			<if test="userQuestion.ip != null">
+				AND ip = #{userQuestion.ip},
+			</if>
+			<if test="userQuestion.handTab != 0 and userQuestion.handTab != null">
+				AND handTab = #{userQuestion.handTab}
+			</if>
+			<if test="userQuestion.osName != null">
+				AND osName = #{userQuestion.osName},
+			</if>
+			<if test="userQuestion.text != null">
+				AND text like CONCAT('%',#{userQuestion.text},'%')
+			</if>
+			<if test="userQuestion.isDelete != 0 and userQuestion.isDelete != null">
+				AND is_delete = #{userQuestion.isDelete}
+			</if>
+			<if test="userQuestion.user != null and userQuestion.user.userId != null">
+				AND user_id = #{userQuestion.user.userId}
+			</if>
+		</trim>
+		</select>
+</mapper>

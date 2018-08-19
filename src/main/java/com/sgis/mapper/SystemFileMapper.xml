@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sgis.dao.SystemFileDao">
+	<!-- 定义数据库字段与实体对象的映射关系  -->  
+    <resultMap type="com.sgis.entity.SystemFile" id="systemFileMap">  
+    <id column="file_id" jdbcType="VARCHAR" property="fileId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="size" jdbcType="DOUBLE" property="size" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="is_visible" jdbcType="INTEGER" property="isVisible" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <association property="user" column="user_id"  javaType="com.sgis.entity.User" resultMap="com.sgis.dao.UserDao.userMap"></association>  
+   
+    </resultMap>  
+	
+
+  
+    <select id="getSystemFileById"  resultMap="systemFileMap">  
+        SELECT * FROM basic_system_file WHERE file_id = #{id}
+    </select> 
+</mapper> 

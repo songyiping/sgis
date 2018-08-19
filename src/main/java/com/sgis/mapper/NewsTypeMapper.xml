@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sgis.dao.NewsTypeDao">
+	<!-- 定义数据库字段与实体对象的映射关系 -->
+	<resultMap id="systemFileResultMap" type="com.sgis.entity.SystemFile">
+		<id column="file_id" jdbcType="VARCHAR" property="fileId" />
+		<result column="file_name" jdbcType="VARCHAR" property="name" />
+		<result column="file_remark" jdbcType="VARCHAR" property="remark" />
+		<result column="file_url" jdbcType="VARCHAR" property="url" />
+		<result column="file_size" jdbcType="INTEGER" property="size" />
+		<result column="file_type" jdbcType="VARCHAR" property="type" />
+	</resultMap>
+	<resultMap id="newsTypeMap" type="com.sgis.entity.NewsType">
+		<id column="news_type_id" jdbcType="VARCHAR" property="newsTypeId" />
+		<result column="news_type_name" jdbcType="VARCHAR" property="newsTypeName" />
+		<result column="father_id" jdbcType="VARCHAR" property="fatherId" />
+		<result column="pic_enable" jdbcType="INTEGER" property="picEnable" />
+		<result column="video_enable" jdbcType="INTEGER" property="videoEnable" />
+		<result column="is_visible" jdbcType="INTEGER" property="isVisible" />
+		<result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+		<association property="listFile" column="list_file_id" columnPrefix="list_" resultMap="systemFileResultMap" />
+		<association property="checkFile" column="check_file_id" columnPrefix="check_" resultMap="systemFileResultMap" />
+		<association property="manageFile" column="manage_file_id" columnPrefix="manage_" resultMap="systemFileResultMap" />
+		<association property="addFile" column="add_file_id" columnPrefix="add_" resultMap="systemFileResultMap" />
+		<association property="editFile" column="edit_file_id" columnPrefix="edit_" resultMap="systemFileResultMap" />
+	</resultMap>
+
+	<select id="getAll" resultMap="newsTypeMap">
+		SELECT
+		t.news_type_id as news_type_id,
+		t.news_type_name as news_type_name,
+		t.father_id as father_id,
+		t.pic_enable as pic_enable,
+		t.video_enable as video_enable,
+		t.is_visible as is_visible,
+		t.is_delete as is_delete,
+		t.remark as remark,
+		l.file_id as list_file_id,
+		l.name as list_file_name,
+		l.remark as list_file_remark,
+		l.url as list_file_url,
+		l.size as list_file_size,
+		l.type as list_file_type,
+		c.file_id as check_file_id,
+		c.name as check_file_name,
+		c.remark as check_file_remark,
+		c.url as check_file_url,
+		c.size as check_file_size,
+		c.type as check_file_type,
+		m.file_id as manage_file_id,
+		m.name as manage_file_name,
+		m.remark as manage_file_remark,
+		m.url as manage_file_url,
+		m.size as manage_file_size,
+		m.type as manage_file_type,
+		a.file_id as add_file_id,
+		a.name as add_file_name,
+		a.remark
+		as add_file_remark,
+		a.url as add_file_url,
+		a.size as add_file_size,
+		a.type as add_file_type,
+		e.file_id as edit_file_id,
+		e.name as edit_file_name,
+		e.remark as edit_file_remark,
+		e.url as edit_file_url,
+		e.size as edit_file_size,
+		e.type as edit_file_type
+		FROM basic_news_type t
+		left join basic_system_file l on t.list_file_id = l.file_id
+		left join basic_system_file c on t.check_file_id = c.file_id
+		left join basic_system_file m on t.manage_file_id = m.file_id
+		left join basic_system_file a on t.add_file_id = a.file_id
+		left join basic_system_file e on t.edit_file_id = e.file_id
+		where t.is_visible = 1 and t.is_delete = 1;
+		
+	</select>
+
+	<!-- 查询根据ID号查询 -->
+	<select id="getNewsTypeById" parameterType="string" resultMap="newsTypeMap">
+		SELECT
+		t.news_type_id as news_type_id,
+		t.news_type_name as news_type_name,
+		t.father_id as father_id,
+		t.pic_enable as pic_enable,
+		t.video_enable as video_enable,
+		t.is_visible as is_visible,
+		t.is_delete as is_delete,
+		t.remark as remark,
+		l.file_id as list_file_id,
+		l.name as list_file_name,
+		l.remark as list_file_remark,
+		l.url as list_file_url,
+		l.size as list_file_size,
+		l.type as list_file_type,
+		c.file_id as check_file_id,
+		c.name as check_file_name,
+		c.remark as check_file_remark,
+		c.url as check_file_url,
+		c.size as check_file_size,
+		c.type as check_file_type,
+		m.file_id as manage_file_id,
+		m.name as manage_file_name,
+		m.remark as manage_file_remark,
+		m.url as manage_file_url,
+		m.size as manage_file_size,
+		m.type as manage_file_type,
+		a.file_id as add_file_id,
+		a.name as add_file_name,
+		a.remark as add_file_remark,
+		a.url as add_file_url,
+		a.size as add_file_size,
+		a.type as add_file_type,
+		e.file_id as edit_file_id,
+		e.name as edit_file_name,
+		e.remark as edit_file_remark,
+		e.url as edit_file_url,
+		e.size as edit_file_size,
+		e.type as edit_file_type
+		FROM basic_news_type t
+		left join basic_system_file l on t.list_file_id = l.file_id
+		left join basic_system_file c on t.check_file_id = c.file_id
+		left join basic_system_file m on t.manage_file_id = m.file_id
+		left join basic_system_file a on t.add_file_id = a.file_id
+		left join basic_system_file e on t.edit_file_id = e.file_id
+		WHERE t.news_type_id = #{id}
+	</select>
+
+	<!-- 查询根据ID号查询父类 -->
+	<select id="getNewsTypeByFatherId" parameterType="string" resultMap="newsTypeMap">
+		SELECT
+		t.news_type_id as news_type_id,
+		t.news_type_name as news_type_name,
+		t.father_id as father_id,
+		t.pic_enable as pic_enable,
+		t.video_enable as video_enable,
+		t.is_visible as is_visible,
+		t.is_delete as is_delete,
+		t.remark as remark,
+		l.file_id as list_file_id,
+		l.name as list_file_name,
+		l.remark as list_file_remark,
+		l.url as list_file_url,
+		l.size as list_file_size,
+		l.type as list_file_type,
+		c.file_id as check_file_id,
+		c.name as check_file_name,
+		c.remark as check_file_remark,
+		c.url as check_file_url,
+		c.size as check_file_size,
+		c.type as check_file_type,
+		m.file_id as manage_file_id,
+		m.name as manage_file_name,
+		m.remark as manage_file_remark,
+		m.url as manage_file_url,
+		m.size as manage_file_size,
+		m.type as manage_file_type,
+		a.file_id as
+		add_file_id,
+		a.name as add_file_name,
+		a.remark as add_file_remark,
+		a.url as add_file_url,
+		a.size as add_file_size,
+		a.type as add_file_type,
+		e.file_id as edit_file_id,
+		e.name as edit_file_name,
+		e.remark as edit_file_remark,
+		e.url as edit_file_url,
+		e.size as edit_file_size,
+		e.type as edit_file_type
+		FROM basic_news_type t
+		left join basic_system_file l on t.list_file_id = l.file_id
+		left join basic_system_file c on t.check_file_id = c.file_id
+		left join basic_system_file m on t.manage_file_id = m.file_id
+		left join basic_system_file a on t.add_file_id = a.file_id
+		left join basic_system_file e on t.edit_file_id = e.file_id
+		WHERE t.father_id = #{fatherId};
+	</select>
+
+
+
+</mapper> 

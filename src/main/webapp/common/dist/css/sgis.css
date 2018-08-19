@@ -1,0 +1,1255 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ font-family: "微软雅黑" }
+
+a { color: #555 }
+
+a:hover,a:focus,a:visited{ text-decoration: none }
+
+/*
+====================================================
+                  INDEX-NAVBAR
+====================================================
+*/
+
+.baowu-logo {
+	
+	width: 192px; 
+	height: 45px; 
+	margin-left: 20px;
+	margin-top: 10px; 
+	margin-bottom: 10px
+}
+
+.navbar-right {
+	float: right
+}
+
+.navbar-right .baowu-title {	
+	
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    width: 420px;
+    height: 45px;
+	
+}
+
+.logo-img {
+    margin-right: 10px;
+}
+
+.navbar {
+	
+	background-color: #FFF;
+}
+
+.navbar-collapse {
+	
+	margin-left: 20px; 
+	margin-right: 20px
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #0954b7;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #0954b7;
+    border-bottom: 2px solid #0954b7;
+}
+
+
+.navbar-default,
+.navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover {
+	
+	/*修改bootstrap的css*/
+	color: #0954b7;
+	font-size: 16px;
+	background-color: #FFF;
+	border: none;
+	
+}
+
+.gradient-color-nav {
+	
+	background: -webkit-linear-gradient(left, #2e549f , #c94e2f); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #2e549f , #c94e2f); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #2e549f , #c94e2f); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #2e549f , #c94e2f); /* 标准的语法 */" 
+}
+
+.gradient-color-nav .navbar-nav  {
+	
+	
+}
+.gradient-color-nav .navbar-nav li a  {
+	
+	line-height: 14px
+}
+
+.gradient-color-nav .navbar-nav li a,
+.gradient-color-nav .navbar-nav .active a,
+.gradient-color-nav .navbar-nav li a:hover,
+.gradient-color-nav .navbar-nav .active a:hover {
+	
+	color: #FFF;
+	background-color: rgba(255,255,255,0);
+	border: none;
+}
+
+/*
+====================================================
+                  INDEX-CAROUSEL
+====================================================
+*/
+
+.carousel-style {
+	
+	margin-top: -20px;
+}
+
+/*
+====================================================
+              INDEX-6_CONTEN-SECTORS
+====================================================
+*/
+
+.content-sectors {
+	margin-top: 20px;
+}
+
+.content-sectors-header {
+	text-align: left;
+	margin-bottom: 20px
+}
+
+.content-sectors-header h4 {
+	color: #555;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+
+.more {
+    float: right; 
+	font-size: 12px; 
+	font-weight: bold; 
+	color: #FFF; 
+	margin-right: 30px;
+	padding: 4px; 
+	background-color: #0954b7; 
+	border-radius: 4px
+}
+
+.more a,
+.more a:hover,
+.more a:focus,
+.more a:visited {
+	color: #FFF; 	
+}
+
+
+/*
+          NEWS
+=============================
+*/
+
+
+
+/*
+       SOCIAL_MEDIA
+=============================
+*/
+
+.QR_code {
+	
+	width: 40px;
+	background-image:url('${basepath}/common/images/weixin_icon.png');
+}
+
+/*微信的二维码*/
+
+.QR_code .weixin-icon {
+	margin-left: 60px;
+	width: 40px;
+}
+
+.QR_code .weixin-QR-code-img {
+	display:none;
+}
+
+.QR_code:hover .weixin-QR-code-img {
+	display:block;
+	position:absolute;
+	top: 40px;
+	left: 100px;
+	width: 200px;
+	height: auto;
+
+}
+
+/*新韶钢的二维码*/
+
+.QR_code .newsg-icon {
+	margin-left: 20px;
+	width: 40px;
+}
+
+.QR_code .newsg-QR-code-img {
+	display:none;
+}
+
+.QR_code:hover .newsg-QR-code-img {
+	display:block;
+	position:absolute;
+	top: 40px;
+	left: 200px;
+	width: 200px;
+	height: auto;
+
+}
+
+.media {
+   margin-top: 15px;
+   padding-bottom: 10px;
+}
+
+.media-sm-xs {
+	text-align: center;
+   margin-top: 20px;
+   nargin-bottom: 20px
+}
+
+.media img {
+	float: left;
+	width: 60px;
+	margin-right: 20px;
+}
+
+.media-sm-xs img {
+	margin-bottom: 20px
+}
+
+.media-body {}
+
+.media-body a,
+.media-body a:hover,
+.media-body a:focus,
+.media-body a:visited {
+	
+	color: #333;
+}
+
+.media-name { 
+    color: #0954b7;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.media-essay-title { 
+    color: #333;
+	font-size: 15px;
+	margin-top: 8px;
+	/*省略宽度意以外的文本*/
+	/* width: 80%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; */
+}
+
+
+/*
+        SHARE_PRICE
+=============================
+*/
+
+
+.sharePrice-container {
+	margin-top: -20px
+}
+
+.sharePrice-container table  {
+	font-size: 14px;
+}
+.sharePrice-container table input {
+	border: none; 
+	width: 50px;
+}
+.sharePrice-container table td {
+	height: 50px;
+	line-height: 50px;
+}
+.sharePrice-container table thead {
+	font-size: 16px;
+}
+.sharePrice-container table input {
+	border: none; 
+	width: 50px;
+}
+.sharePrice-container table td {
+	height: 50px;
+	line-height: 50px;
+}
+
+/修改bootstrap的css/
+.table>tbody>tr>td, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>td, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>thead>tr>th {
+	
+	border-top: 1px solid red
+	
+}
+
+/*
+     SG_NEWS = SASAC_NEWS
+=============================
+*/
+
+.list-group {
+	
+	margin-left: -16px;
+}
+
+.news-list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.news-list-group-item a,
+.news-list-group-item a:hover,
+.news-list-group-item a:focus,
+.news-list-group-item a:visited {
+    color: #333;
+}
+
+.date {
+	color: #0954b7; 
+	font-weight: bold; 
+	margin-right: 10px
+}
+
+/*
+            VIDEO
+=============================
+*/
+
+
+/*
+====================================================
+                INDEX-TRANSITIONAL_AREA
+====================================================
+*/
+
+.transitional-area {
+	margin-top: 20px; 
+	margin-bottom: 20px
+}
+
+.transitional-area img {
+	width:100%
+}
+
+/*
+====================================================
+              INDEX-4_MAIN_BUSSINESS_SECTORS
+====================================================
+*/
+
+/*
+        ORDINARY_STEEL
+=============================
+*/
+
+
+
+/*
+        SPECIAL_STEEL
+=============================
+*/
+
+
+
+/*
+      MULTIPLE_DOMAIN
+=============================
+*/
+
+
+
+/*
+     COKING_PRODUCTIONS
+=============================
+*/
+
+
+/*
+====================================================
+             CONTACT-INFO-BOARD
+====================================================
+*/
+
+.contact-info-borad {
+	
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.contact-info-area {
+	
+
+}
+
+.contact-info-area h3 {
+	
+	color: #0954b7;
+	margin-left: 40px
+}
+
+.contact-info-area ul {
+	
+	margin-top: 20px;
+}
+
+.contact-info-area ul li {
+	
+	list-style-type: none;
+	margin-top: 10px;
+}
+
+.consulting-form {
+	
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.consulting-form h3 {
+	
+	color: #0954b7;
+}
+
+.consulting-form label {
+	
+	font-weight: normal;
+	margin-top: 20px
+}
+
+.consulting-form input {
+	
+	display: block;
+	width: 100%;
+	padding: 5px;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid #999;
+}
+
+.consulting-form .veri-code {
+	
+	display: inline;
+	width: 100px;
+	padding: 5px;
+	outline: none;
+	border: none;
+	border: 1px solid #999;
+}
+
+.consulting-form .send  {
+	
+	margin-top: 20px;
+	background-color: #FFF;
+	border: none;
+}
+
+.consulting-form .send img  {
+	
+	width: 
+}
+
+/*
+====================================================
+            INDEX-FOOTER_INFO
+====================================================
+*/
+
+.footer-info{
+	color: #FFF; 
+	background-color: #2f4052; 
+	
+}
+
+/*
+          MENU_LIST
+=============================
+*/
+
+.footer-menu-list { 
+	text-align: center; 
+	margin-top: 20px;
+	margin-bottom: 20px
+}
+
+.footer-menu-list ul .menu-list-title a {
+	color: #FFF;
+	font-size: 16px; 
+	font-weight: bold; 
+	margin-bottom: 20px
+
+}
+.footer-menu-list ul li a {
+	display: block;
+	color: #FFF;
+	margin-top: 10px
+}
+.footer-menu-list ul li a:hover{
+	color: #FFF;
+	text-decoration: none;
+}
+
+
+/*
+        CONTACT_INFO
+=============================
+*/
+
+.footer-contactInfo {
+	margin-top: 20px;
+	padding-left: 40px;
+	border-left: 1px solid #4b5054;
+	height: 260px;	
+}
+
+/*针对小屏幕和超小屏幕*/
+.footer-contactInfo-sm-xs {
+	text-align: center;
+	margin-top: 10px;
+	
+}
+
+
+
+.footer-contactInfo .contactInfo-title a {
+	color: #FFF;
+	font-size: 16px; 
+	font-weight: bold; 
+	margin-bottom: 20px
+}
+
+/*针对小屏幕和超小屏幕*/
+.footer-contactInfo-sm-xs .contactInfo-title a {
+	color: #FFF;
+	font-size: 16px; 
+	font-weight: bold;
+	line-height: 30px;
+	margin-bottom: 20px
+}
+
+.footer-contactInfo .contactInfo-title a:hover {
+	color: #0954b7;
+	text-decoration: none;
+}
+
+/*针对小屏幕和超小屏幕*/
+.footer-contactInfo-sm-xs .contactInfo-title a:hover {
+	color: #0954b7;
+	text-decoration: none;
+}
+
+.footer-contactInfo ul li {
+
+}
+
+.footer-contactInfo ul li {
+	color: #FFF;
+	font-size: 14px; 
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/*针对小屏幕和超小屏幕*/
+.footer-contactInfo-sm-xs ul li {
+	color: #d7d8d9;
+	font-size: 14px; 
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+/*
+        WEBSITE_INFO
+=============================
+*/
+
+.website-info {
+	
+	color: #FFF; 
+	background-color: #3a3a3a;
+	padding: 20px
+}
+
+.website-info .link-list {	
+	margin-top: 20px
+}
+
+.website-info .link-list li {	
+	display: inline;
+	margin-right: 10px
+}
+
+.website-info .link-list li a {
+	color: #FFF
+}
+
+
+.webInfo-list {
+	
+    padding: 20px
+}
+
+.webInfo-list ul {
+	
+    text-align: right
+}
+
+.webInfo-list ul li {
+	
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+
+/*
+====================================================
+     BASIC-LATOUT  MENU_LIST_CONTAINER
+====================================================
+*/
+
+/*
+          MENU_LIST
+=============================
+*/
+
+.subpage-menu-list {
+	font-size: 16px; 
+	text-align: left;
+	margin-top: 20px
+}
+
+
+
+.subpage-menu-list .list-group-item {
+	color: #555;
+	font-size:16px; 
+	background-color: #FFF;
+	border: none;
+}
+
+.subpage-menu-list .list-group-item:hover,
+.subpage-menu-list .list-group-item:focus {
+    
+    color: #0954b7;
+	background-color: #FFF;
+}
+
+
+.subpage-menu-list .active {
+	color: #0954b7;
+	font-size:15px; 
+	font-weight: bold; 
+	background-color: #FFF;
+	border: none;
+	
+}
+
+.subpage-menu-list .active:hover,
+.subpage-menu-list .active:visited{
+	
+	color: #0954b7;
+	background-color:#FFF
+}
+
+
+/*
+====================================================
+     BASIC-LATOUT  CONTENT_CONTAINER
+====================================================
+*/
+
+/*
+        CONTENT_HEADER
+=============================
+*/
+
+.pageName h2 {
+	color: #0954b7
+}
+
+
+/*
+        CONTENT_BODY
+=============================
+*/
+
+.content-body {
+	margin-top: 40px; 
+	margin-bottom: 40px
+}
+
+.essay-headline {
+	color: #0954b7; 
+	text-align: center;
+	line-height: 40px;
+}
+
+.essay-subheading {
+	text-align: center
+}
+
+.essay-details {
+	margin-top: 50px
+	
+}
+
+.essay-details p img {
+	/* width: 100%;
+	margin-top: 40px */
+	display:inline-block;
+	max-width:100%;
+	height:auto;
+	
+}
+
+.essay-details p {
+	font-size: 16px; 
+	/* text-indent: 30px;  */
+	line-height: 40px;
+	word-break:break-all;
+}
+
+/*针对文章中需要重点标注的内容*/
+.essay-details p b {
+	color: #0954b7;
+	font-weight: bold;
+}
+
+
+/*针对董事长致辞部分的签名*/
+.essay-details .signature{
+	text-align: right; 
+	margin-top: 40px
+}
+
+.essay-details .signature img{
+	width: 20%;
+	margin-left: 20px;
+}
+
+.essay-author-date {
+	color: #999;
+	text-align: right;
+	margin-top: 20px
+}
+
+.page-turning {
+	margin-top: 40px
+}
+
+
+
+/*
+====================================================
+     PROFILE_PANELS_GROUP  PROFILE PANELS
+====================================================
+*/
+
+
+
+.profile-panel {
+    width: 80%; 
+	margin: 0 auto
+}
+
+.profile-panel img {
+    width: 100%; 
+}
+
+.profile-panel-text {
+	text-align: center;
+	background-color: 7d7d7d; 
+	padding: 20px 0px
+}
+
+.profile-panel-text h4 {
+	font-weight: bold;
+	color: #0954b7; 
+}
+
+.profile-panel-text h5 {
+	color: #555;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+
+/*针对业务规划-特钢版块的产品类型*/
+
+.specialSteel-type {
+	
+	margin-top: 20px; 
+	margin-bottom: 60px
+}
+
+.specialSteel-type h3 {
+	
+	color: #0954b7; 
+	text-align: center
+}
+
+.specialSteel-type img {
+	
+	display:block;
+	width: 100px;
+	margin: 40px auto;
+}
+
+.specialSteel-type p {
+	
+	margin-top: 20px; 
+	font-size: 16px; 
+	line-height: 30px; 
+	text-indent: 30px;
+}
+ 
+
+/*
+====================================================
+     PROFILE_CONTENT 
+====================================================
+*/
+
+/*
+         INTRO
+=============================
+*/
+
+.profile-content-text {
+	margin-top: 40px;
+
+}
+
+.profile-content-text .name {
+	color: #0954b7;
+	font-weight: bold;
+}
+.profile-content-text .duty {
+	color: #555;
+	margin-top: 20px
+	
+}
+.profile-content-text .title {
+	color: #999;
+	margin-top: 20px
+}
+
+/*
+    BRIEF_INTRUDUCTION 
+=============================
+*/
+
+.brief-intruduction {
+	margin-top: 40px;
+}
+
+.brief-intruduction blockquote p {
+	font-size: 16px; 
+	line-height: 30px; 
+	text-indent: 30px
+}
+
+
+
+/*
+    BRIEF_INTRUDUCTION 
+=============================
+*/
+
+.career-path {
+	font-size: 16px;
+	margin-top: 20px; 
+	margin-bottom: 20px
+}
+
+.career-path dl dt {
+	color: #0954b7;
+}
+
+/*
+====================================================
+     BUSINESS_SCROPE
+====================================================
+*/
+
+/*
+    CLASSIFIED_TAB 
+=============================
+*/
+.classified-tab {
+	margin-top: -20px;
+}
+
+.nav-tabs {
+    border: none;
+}
+
+.nav-tabs>li>a {
+	color: #333;
+	font-size: 16px;
+	margin-top: 20px;
+    margin-right: 10px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 
+}
+
+.nav-tabs>li.active>a, 
+.nav-tabs>li.active>a:focus, 
+.nav-tabs>li.active>a:hover {
+	color: #FFF;
+	background-color: #0954b7;
+	border: 1px solid #0954b7;
+}
+
+.nav-tabs>li>a:hover {
+	color: #0954b7;
+	background-color: #FFF;
+	border: 1px solid #0954b7;
+}
+
+
+/*
+    PRODUCTION_CONTENT
+=============================
+*/
+
+.production-content {
+	margin-top:40px; 
+	margin-bottom: 60px;
+}
+
+/*针对产品类别（板材，工业线材，普棒线材）*/
+.production-content h3 {
+	color: #0954b7; 
+	font-weight: bold; 
+	margin-bottom: 40px
+}
+
+/*针对产品的细分类型*/
+.production-content h4 {
+	color: #0954b7; 
+	font-weight: bold; 
+	text-align: center; 
+	margin-top: 40px; 
+	margin-bottom: 20px
+}
+
+/*针对细分类型的文字描述*/
+.production-content p {
+	font-size: 16px; 
+	line-height: 30px; 
+	text-indent: 30px
+}
+
+/*针对多元产业的标题*/
+.multiple-domain-title {
+	text-align: center; 
+	margin-top: 60px
+}
+
+/*针对多元产业的联系方式*/
+.contact-info {
+	padding: 5px 5px; 
+	margin-top: 60px; 
+	margin-left: 40px; 
+	border-left: 4px solid #CCC
+	
+	
+}
+
+/*
+====================================================
+    DIRECTORY_LIST
+====================================================
+*/
+
+.directory-list {
+	font-size: 16px;
+	margin-bottom: 40px
+}
+
+.directory-list table tbody tr th {
+	color: #0954b7;
+}
+
+.pagination li a,
+.pagination li a:visited{
+	font-size: 16px;
+	color: #999;
+	background-color: #FFF;
+	border-color:  #EAEAEA;
+}
+
+.pagination li a:hover, 
+.pagination li a:focus {
+	color: #FFF;
+	background-color: #0954b7;
+	border-color:  #0954b7;
+}
+
+
+.pagination .active a,
+.pagination .active a:hover,
+.pagination .active a:focus,
+.pagination .active a:visited {  
+    color: #999;
+	background-color: #EAEAEA;
+	border-color:  #EAEAEA;
+	
+}
+
+
+/*
+====================================================
+    DIRECTORY_PANEL
+====================================================
+*/
+
+.directory-panel { 
+    margin-bottom: 50px 
+}
+
+.directory-panel-img {}
+
+.directory-panel-content { }
+
+.directory-panel-content h3 { 
+    color: #0954b7 
+} 
+.directory-panel-content h4 { 
+    color: #999;
+	margin-top: 16px;
+}
+
+/*针对微信公众号图标*/
+.directory-panel-content span img { 
+    width: 40px; 
+	margin-right: 20px 
+} 
+
+.directory-panel-content blockquote { 
+    font-size: 16px;
+    margin-top: 20px 
+}
+
+.directory-panel-content .enter { 
+    display: block; 
+	color: #FFF; 
+	width: 100px; 
+	padding: 10px 20px; 
+	background-color: #0954b7;
+}
+
+
+/*
+====================================================
+     CONTACR_US
+====================================================
+*/
+
+
+.contactUs-header {
+	margin-bottom: 40px;
+}
+
+.contactUs-header .cn {
+	font-size: 24px;
+	color: #0954b7;
+}
+
+.contactUs-header .en {
+	font-size: 18px;
+	color: #999;
+}
+
+
+.contactUs-panel {
+	margin-top: 40px;
+}
+
+
+.contactUs-panel .contactUs-panel-header {
+	margin-bottom: 20px
+}
+
+.contactUs-panel .contactUs-panel-header .cn {
+	font-size: 22px;
+	color: #0954b7;
+}
+
+.contactUs-panel .contactUs-panel-header .en {
+	font-size: 16px;
+	color: #999;
+}
+
+.contactUs-panel .contactUs-panel-content div{
+	margin-bottom: 10px
+}
+
+.contactUs-panel .contactUs-panel-content .cn {
+	font-size: 16px;
+}
+
+.contactUs-panel .contactUs-panel-content .en {
+	font-size: 16px;
+	color: #999;
+}
+
+
+/*
+    CLASSIFIED_TAB 
+=============================
+*/
+
+/* 以下是新增的css mediaSummary */
+
+
+
+.breadcrumb {
+	float: right;
+	margin-top: -40px;
+	background-color: #FFF;
+}
+
+.breadcrumb li a {
+	color: #003586;
+}
+
+/*清除浮动*/
+.clear {
+	clear: both;
+	color: #FFF;
+}
+
+.media-digest-year {
+	margin-left: -40px;
+	margin-bottom: 40px
+}
+
+.media-digest-year li {
+	display: inline;
+}
+
+.media-digest-year li a {
+	font-size: 16px;
+	padding: 5px 10px;
+	background-color: #FAFAFA;
+	border: 1px solid #EAEAEA
+}
+
+.media-digest-year li.active a {
+	color: #003586;
+	font-size: 16px;
+	padding: 5px 10px;
+	background-color: #FFF;
+	border-top: 2px solid #003586;
+}
+
+.media-digest-year li a:hover, .media-digest-year li a:focus {
+	color: #003586;
+	font-size: 16px;
+	padding: 5px 10px;
+	background-color: #FFF;
+	border-top: 2px solid #003586;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	color: #003586;
+	font-weight: bold;
+	background-color: #FFF;
+	border: none;
+}
+
+.nav-tabs>li>a {
+	color: #555;
+	border: none
+}
+
+.nav-tabs>li>a:focus, .nav-tabs>li>a:hover {
+	color: #555;
+	background-color: #FFF;
+	border: none;
+}
+
+.media-digest-table {
+	
+	margin-top: 20px
+}
+
+.media-digest-table .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+	border-top: none
+}
+
+.media-digest-table .table>thead>tr>th {
+	border-bottom: none;
+}
+
+.media-digest-table .table>tbody>tr>th {
+	color: #003586;
+	font-size: 16px;
+	display: inline-block;
+	margin-bottom: 20px;
+	padding-top: 16px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 0;
+	border-top: 1px solid #003586;
+	border-left: 10px solid #003586
+}
+
+.media-digest-table .table>tbody>tr>td {
+	font-size: 16px;
+}
+
+.media-digest-table .table>tbody>tr>td>a {
+	color: #003586;
+}
+
+.print {
+	background-imgage: url('${basepath}/common/images/print_icon.png') no-repeat;
+	background-color: #FFF;
+	border: none;
+}
+
+.totop {
+	
+}
+
+
+
+
+
+
+
+
+
+
