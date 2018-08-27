@@ -60,7 +60,9 @@
 		<c:if test="${firstBar.newsTypeId eq 'g'}">
 			<img src="${basepath}/common/images/background/lxwm.jpg" style="width: 100%; z-index: -1;">
 		</c:if>
-
+		<c:if test="${secondBar.fatherId eq 'h'}">
+			<img src="${basepath}/common/images/background/lxwm.jpg" style="width: 100%; z-index: -1;">
+		</c:if>
 	</div>
 	<div class="container" style="margin-top: -200px; margin-bottom: 50px">
 		<div class="row">

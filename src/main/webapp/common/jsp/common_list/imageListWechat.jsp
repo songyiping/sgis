@@ -38,7 +38,9 @@
 
 	<%@include file="../share/header.jsp"%>
 
+	<%@include file="../share/header.jsp"%>
 	<div class="bg-img" style="margin-top: 100px">
+
 		<c:if test="${firstBar.newsTypeId eq 'a'}">
 			<img src="${basepath}/common/images/background/gywm.jpg" style="width: 100%; z-index: -1;">
 		</c:if>

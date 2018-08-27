@@ -31,6 +31,7 @@
 
 					<li class="active"><a href="${basepath}/index">首页</a></li>
 					<c:forEach items="${fatherList}" var="fatherList">
+						<c:if test="${ fatherList.isVisible eq 1}">
 						<c:choose>
 							<c:when test="${firstBar.newsTypeId eq fatherList.newsTypeId}">
 								<li class="active">
@@ -41,6 +42,7 @@
 						</c:choose>
 						<a href="${basepath}/list/${fatherList.newsTypeId }.do">${fatherList.newsTypeName}</a>
 						</li>
+						</c:if>
 					</c:forEach>
 				</ul>
 				<!--嵌套表单-->

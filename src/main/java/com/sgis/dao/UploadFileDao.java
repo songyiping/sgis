@@ -25,8 +25,8 @@ public interface UploadFileDao {
 	 * @throws Exception
 	 */
 	public UploadFile getUploadFileById(@Param("id")String id) throws Exception;
-	
-	/**
+	public List<UploadFile> getUploadFileByNewsId(@Param("id")String id) throws Exception;
+	/**getUploadFileByNewsId
 	 * 删除账号（即删除 UploadFile）
 	 * @param id
 	 * @throws Exception

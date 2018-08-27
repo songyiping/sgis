@@ -53,7 +53,7 @@ public class LoginController {
 		PageModel p;       
 		
 		//韶钢新闻
-		nt.setNewsTypeId("c1");
+		nt.setNewsTypeId("ca");
 		n.setNewsType(nt);
 		p = newsService.getNewsList(n, 1, 8);
 		map.addObject("c1",p);
@@ -64,12 +64,12 @@ public class LoginController {
 		map.addObject("cc1",p);
 		
 		//信息公告
-		nt.setNewsTypeId("c2");
+		nt.setNewsTypeId("cb");
 		n.setNewsType(nt);
 		 p = newsService.getNewsList(n, 1, 6);
 		map.addObject("c2",p);
 		//微信公众号
-		nt.setNewsTypeId("c5");
+		nt.setNewsTypeId("ce");
 		n.setAuthor("友爱的宝武");
 		n.setNewsType(nt);
 		p = newsService.getNewsList(n, 1, 1);
@@ -85,7 +85,7 @@ public class LoginController {
 		p = newsService.getNewsList(n, 1, 1);
 		map.addObject("c5_3",p);
 		//视频矩阵
-		nt.setNewsTypeId("c6");
+		nt.setNewsTypeId("cf");
 		n.setNewsType(nt);
 		 p = newsService.getNewsList(n, 1, 1);
 		map.addObject("c6",p);

@@ -20,7 +20,11 @@
 
 
 	<select id="getUploadFileById" resultMap="uploadFileMap">
-		SELECT * FROM basic_upload_file WHERE id = #{id}
+		SELECT * FROM basic_upload_file WHERE file_id = #{id}
+	</select>
+	
+	<select id="getUploadFileByNewsId" resultMap="uploadFileMap">
+		SELECT * FROM basic_upload_file WHERE news_id = #{id} and type like CONCAT('%',"image",'%')
 	</select>
 
 	<insert id="addUploadFile" parameterType="com.sgis.entity.UploadFile">
@@ -40,5 +44,7 @@
 		#{uploadFile.endTime,jdbcType=TIMESTAMP})
 	</insert>
 
-
+	<delete id="delUploadFile">
+		delete from basic_upload_file where file_id = #{id}
+	</delete>
 </mapper>

@@ -84,7 +84,7 @@
 
             <div class="registration">
                 还没有注册？
-                <a class="" href="registration.do">
+                <a class="" href="">
                     马上注册
                 </a>
             </div>

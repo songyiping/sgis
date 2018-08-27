@@ -14,7 +14,7 @@
 	    
 	</h2>
 	<ul class="breadcrumb">
-		<li><a href="${basepath}.do">首页</a></li>
+		<li><a href="${basepath}/index.do">首页</a></li>
 		<li><a href="${basepath}/list/${firstBar.newsTypeId}.do">${firstBar.newsTypeName}</a></li>
 
 		<c:if test="${secondBar ne null}">

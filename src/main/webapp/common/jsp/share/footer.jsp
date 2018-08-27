@@ -10,12 +10,12 @@
 			<div class="footer-menu-list">
 				<ul class="list-unstyled">
 					<li class="menu-list-title"><a href="${basepath}/list/a.do"> 关于我们</a></li>
-					<li><a href="${basepath}/list/a1.do">公司简介</a></li>
-					<li><a href="${basepath}/list/a2.do">治理结构</a></li>
-					<li><a href="${basepath}/list/a3.do">公司愿景</a></li>
-					<li><a href="${basepath}/list/a4.do">董事长致辞</a></li>
-					<li><a href="${basepath}/list/a5.do">董事会</a></li>
-					<li><a href="${basepath}/list/a6.do">管理团队</a></li>
+					<li><a href="${basepath}/list/aa.do">公司简介</a></li>
+					<li><a href="${basepath}/list/ab.do">治理结构</a></li>
+					<li><a href="${basepath}/list/ac.do">公司愿景</a></li>
+					<li><a href="${basepath}/list/ad.do">董事长致辞</a></li>
+					<li><a href="${basepath}/list/ae.do">董事会</a></li>
+					<li><a href="${basepath}/list/af.do">管理团队</a></li>
 				</ul>
 			</div>
 		</div>
@@ -23,9 +23,9 @@
 			<div class="footer-menu-list">
 				<ul class="list-unstyled">
 					<li class="menu-list-title"><a href="${basepath}/list/b.do"> 业务规划</a></li>
-					<li><a href="${basepath}/list/b1.do">普材板块</a></li>
-					<li><a href="${basepath}/list/b2.do">特钢板块</a></li>
-					<li><a href="${basepath}/list/b3.do">多元板块</a></li>
+					<li><a href="${basepath}/list/ba.do">普材板块</a></li>
+					<li><a href="${basepath}/list/bb.do">特钢板块</a></li>
+					<li><a href="${basepath}/list/bc.do">多元板块</a></li>
 				</ul>
 			</div>
 		</div>
@@ -33,12 +33,12 @@
 			<div class="footer-menu-list">
 				<ul class="list-unstyled">
 					<li class="menu-list-title"><a href="${basepath}/list/c.do"> 媒体中心</a></li>
-					<li><a href="${basepath}/list/c1.do">韶钢新闻</a></li>
-					<li><a href="${basepath}/list/c2.do">信息公告</a></li>
-					<li><a href="${basepath}/list/c3.do">传媒摘要</a></li>
-					<li><a href="${basepath}/list/c4.do">品牌故事</a></li>
-					<li><a href="${basepath}/list/c5.do">微信公众号</a></li>
-					<li><a href="${basepath}/list/c6.do">视频矩阵</a></li>
+					<li><a href="${basepath}/list/ca.do">韶钢新闻</a></li>
+					<li><a href="${basepath}/list/cb.do">信息公告</a></li>
+					<li><a href="${basepath}/list/cc.do">传媒摘要</a></li>
+					<li><a href="${basepath}/list/cd.do">品牌故事</a></li>
+					<li><a href="${basepath}/list/ce.do">微信公众号</a></li>
+					<li><a href="${basepath}/list/cf.do">视频矩阵</a></li>
 				</ul>
 			</div>
 		</div>
@@ -46,17 +46,17 @@
 			<div class="footer-menu-list">
 				<ul class="list-unstyled">
 					<li class="menu-list-title"><a href="${basepath}/list/d.do"> 党的建设</a></li>
-					<li><a href="${basepath}/list/d1.do">基本概况</a></li>
-					<li><a href="${basepath}/list/d2.do">党建动态</a></li>
+					<li><a href="${basepath}/list/da.do">基本概况</a></li>
+					<li><a href="${basepath}/list/db.do">党建动态</a></li>
 				</ul>
 				<ul class="list-unstyled">
 					<li class="menu-list-title"><a href="${basepath}/list/e.do"> 社会责任</a></li>
 				</ul>
 				<ul class="list-unstyled">
 					<li class="menu-list-title"><a href="${basepath}/list/f.do"> 员工发展</a></li>
-					<li><a href="${basepath}/list/f1.do">概述</a></li>
-					<li><a href="${basepath}/list/f2.do">职业发展</a></li>
-					<li><a href="${basepath}/list/f3.do">薪酬福利</a></li>
+					<li><a href="${basepath}/list/fa.do">概述</a></li>
+					<li><a href="${basepath}/list/fb.do">职业发展</a></li>
+					<li><a href="${basepath}/list/fc.do">薪酬福利</a></li>
 				</ul>
 			</div>
 		</div>
@@ -69,10 +69,10 @@
 	<div class="row website-info">
 		<div class="col-md-7">
 			<ul class="link-list">
-				<li><a href="#">韶钢网站群</a></li>
-				<li><a href="#">友情链接</a></li>
-				<li><a href="#">法律声明</a></li>
-				<li><a href="#">帮助信息</a></li>
+				<li><a href="${basepath}/common/jsp/common_static/assitantInfo-sgwzq.jsp">韶钢网站群</a></li>
+				<li><a href="${basepath}/common/jsp/common_static/assitantInfo-yqlj.jsp">友情链接</a></li>
+				<li><a href="${basepath}/common/jsp/common_static/assitantInfo-flsm.jsp">法律声明</a></li>
+				<li><a href="${basepath}/common/jsp/common_static/assitantInfo-bzxx.jsp">帮助信息</a></li>
 			</ul>
 		</div>
 		<div class="col-md-5">
@@ -115,6 +115,6 @@
 	}
 	if (abc == "abc") {
 		var obj = document.body;
-		obj.innerHTML = s2s(obj.innerHTML);
+		obj.innerHTML = t2s(obj.innerHTML);
 	}
 </script>

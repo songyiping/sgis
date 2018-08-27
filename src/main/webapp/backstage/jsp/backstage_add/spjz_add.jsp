@@ -78,8 +78,12 @@
 									</fieldset>
 									<fieldset title="视频上传">
 										<legend>Personal Information</legend>
-										<div class="form-group">
+										<label class="col-md-2 col-sm-2 control-label">
+										<br>
+										</label>
+										<div class="col-md-10 col-sm-10">
 											<%@include file="../share/upload/uploadVideo.jsp"%>
+											<br><br>
 										</div>
 									</fieldset>
 									<fieldset title="详细介绍">

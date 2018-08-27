@@ -167,7 +167,7 @@ a:hover,a:focus,a:visited{ text-decoration: none }
 .QR_code {
 	
 	width: 40px;
-	background-image:url('${basepath}/common/images/weixin_icon.png');
+	
 }
 
 /*微信的二维码*/

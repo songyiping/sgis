@@ -25,7 +25,9 @@
 		<ul class="nav navbar-nav">
 			<li><a href="${basepath}/index">首页</a></li>
 			<c:forEach items="${fatherList}" var="fatherList">
+				<c:if test="${ fatherList.isVisible eq 1}">
 				<li><a href="${basepath}/list/${fatherList.newsTypeId }.do">${fatherList.newsTypeName}</a></li>
+				</c:if>
 			</c:forEach>
 		</ul>
 

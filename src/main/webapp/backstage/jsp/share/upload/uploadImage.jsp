@@ -10,10 +10,28 @@
 
 
 	<div class="user-photo-box">
-		<img id="user-photo" src="${basepath}/backstage/images/xgt.png" height="${myHeight/2}px" width="${myWidth/2}px" />
+		<c:choose>
+			<c:when test="${news.picList[0].url ne null}">
+				<img id="user-photo" src="${basepath}/${news.picList[0].url}" height="${myHeight/2}px" width="${myWidth/2}px" />
+			</c:when>
+			<c:otherwise>
+				<img id="user-photo" src="${basepath}/backstage/images/xgt.png" height="${myHeight/2}px" width="${myWidth/2}px" />
+			</c:otherwise>
+		</c:choose>
+
 	</div>
 	
-	<button type="button" class="btn btn-danger" data-target="#changeModal" data-toggle="modal">打开</button>
+	<c:choose>
+		<c:when test="${news.picList[0].url ne null}">
+			<button type="button" id="del" class="btn btn-danger" onclick="deleleImage();">删除原图</button>
+			<button type="button" style="display:none" id="up" class="btn btn-primary" data-target="#changeModal" data-toggle="modal">上传图片</button>
+		</c:when>
+		<c:otherwise>
+		    <button type="button" style="display:none" id="del" class="btn btn-danger" onclick="deleleImage();">删除原图</button>
+			<button type="button" id="up" class="btn btn-primary" data-target="#changeModal" data-toggle="modal">上传图片</button>
+		</c:otherwise>
+	</c:choose>
+	
 
 	<div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
@@ -45,7 +63,7 @@
 					<button type="button" class="btn btn-primary disabled" disabled="true" onclick="rotate2();">逆时针</button>
 					<button type="button" class="btn btn-primary disabled" disabled="true" onclick="reset1();">复位</button>
 					<button type="button" class="btn btn-primary disabled" disabled="true" onclick="sendPhoto();">提交</button>
-				<!-- 	<button type="button" class="btn btn-close" aria-hidden="true" data-dismiss="modal">取消</button> -->
+					<!-- 	<button type="button" class="btn btn-close" aria-hidden="true" data-dismiss="modal">取消</button> -->
 
 				</div>
 			</div>
@@ -75,6 +93,24 @@
 	}
 
 	</script>
+<script type="text/javascript">
+var deleleImage = function(){
+	jQuery.ajax({
+        type:'post',
+        url:'${basepath}/file_del.do?id=${uuid}',
+        cache:false,
+        dataType:'json',
+        success:function(data){
+        	
+        	document.getElementById("user-photo").src='${basepath}/backstage/images/xgt.png';
+        	 $('#up').show();
+             $('#del').hide();
+        }
+    });
+	return false;
+
+}
+</script>
 
 <script type="text/javascript">
 		var initCropperInModal = function(img, input, modal) {
@@ -185,10 +221,14 @@
 		contentType: false,
         success: function (data) {
            
-            	alert(data.url);
+            	
                 // 将上传的头像的地址填入，为保证不载入缓存加个随机数
                 document.getElementById("user-photo").src='${basepath}/'+data.url;
-               
+             
+                //document.getElementById("up").hide();
+                $('#up').hide();
+                $('#del').show();
+                //document.getElementById("del").show();
                 $('#changeModal').modal('hide');
            
         }

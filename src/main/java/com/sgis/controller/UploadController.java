@@ -1,6 +1,7 @@
 package com.sgis.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sgis.entity.UploadFile;
 import com.sgis.entity.User;
@@ -119,6 +121,38 @@ public class UploadController {
 
 		json.put("result", msg);
 		System.out.println("第6阶段");
+		out.print(json);
+		out.close();
+	}
+
+
+	@RequestMapping(value = "/file_del", method = RequestMethod.POST)
+	@ResponseBody
+	public void file_del(HttpServletResponse response, HttpServletRequest request,@RequestParam("id") String id) throws IOException {
+		msg = null;
+		String file_url;
+		try {
+			//获取上传文件
+			UploadFile uf = uploadFileService.getUploadFileByNewsId(id).get(0);
+			file_url = "E:" + File.separator + "tomcat" + File.separator + uf.getUrl();
+
+			File file = new File(file_url);
+			if(file.isFile()&& file.exists()) {
+				Boolean delresponse = file.delete();
+				uploadFileService.delUploadFile(uf.getId());
+				if(delresponse) {
+					msg = "删除成功！";
+				}
+			}else {
+				msg = "删除失败！非正确的文件类型";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = "删除失败，未找到该图片";
+		}
+		JSONObject json = new JSONObject();
+		PrintWriter out = response.getWriter();
+		json.put("result", msg);
 		out.print(json);
 		out.close();
 	}

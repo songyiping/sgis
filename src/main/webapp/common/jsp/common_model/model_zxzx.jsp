@@ -3,7 +3,7 @@
       
       <!--  NEWS-->
       <div class="content-sectors-header" >
-        <h4>最新资讯<span class="more"><a href="${basepath}/list/c1.do">更多</a></span></h4>
+        <h4>最新资讯<span class="more"><a href="${basepath}/list/ca.do">更多</a></span></h4>
         <h5>NEWS</h5>
       </div>
       

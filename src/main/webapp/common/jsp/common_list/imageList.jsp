@@ -37,7 +37,7 @@
 
 
 	<%@include file="../share/header.jsp"%>
-	<div class="bg-img" style="margin-top: -20px">
+	<div class="bg-img" style="margin-top: 100px">
 		<c:if test="${firstBar.newsTypeId eq 'a'}"><img src="${basepath}/common/images/background/gywm.jpg" style="width: 100%; z-index: -1;"></c:if>
 		<c:if test="${firstBar.newsTypeId eq 'b'}"><img src="${basepath}/common/images/background/ywgh.jpg" style="width: 100%; z-index: -1;"></c:if>
 		<c:if test="${firstBar.newsTypeId eq 'c'}"><img src="${basepath}/common/images/background/mtzx.jpg" style="width: 100%; z-index: -1;"></c:if>
@@ -46,7 +46,7 @@
 		<c:if test="${firstBar.newsTypeId eq 'f'}"><img src="${basepath}/common/images/background/ygfz.jpg" style="width: 100%; z-index: -1;"></c:if>
 		<c:if test="${firstBar.newsTypeId eq 'g'}"><img src="${basepath}/common/images/background/lxwm.jpg" style="width: 100%; z-index: -1;"></c:if>
 	</div>
-	<div class="container" style="margin-top: -300px; margin-bottom: 50px">
+	<div class="container" style="margin-top: -200px; margin-bottom: 50px">
 		<!-------------------------------------  超小屏幕隐藏-->
 		<div class="col-md-2 hidden-xs">
 			<!-- 二级导航 -->

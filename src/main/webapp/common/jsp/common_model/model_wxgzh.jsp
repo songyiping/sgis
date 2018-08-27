@@ -7,7 +7,7 @@
         <h4>新媒体
         <span class="QR_code">
           <img class="weixin-icon" src="${basepath}/common/images/weixin_icon.png" >
-          <img class="weixin-QR-code-img" src="${basepath}/common/images/QR_code.png">
+          <img class="weixin-QR-code-img" src="${basepath}/common/images/weixin_QR_code.png">
         </span>
         
         <span class="QR_code">
@@ -17,7 +17,7 @@
         
         
         
-        <span class="more"><a href="${basepath}/list/c5.do">更多</a></span>
+        <span class="more"><a href="${basepath}/list/ce.do">更多</a></span>
         </h4>
       <h5>SOCIAL MEDIA</h5>
       </div>

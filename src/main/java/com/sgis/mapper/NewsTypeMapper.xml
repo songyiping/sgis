@@ -73,7 +73,7 @@
 		left join basic_system_file m on t.manage_file_id = m.file_id
 		left join basic_system_file a on t.add_file_id = a.file_id
 		left join basic_system_file e on t.edit_file_id = e.file_id
-		where t.is_visible = 1 and t.is_delete = 1;
+		where t.is_delete = 1;
 		
 	</select>
 

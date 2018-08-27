@@ -65,11 +65,15 @@
 												<input type="text" name="secondTitle" class="form-control" maxlength="50">
 											</div>
 										</div>
-										<input type="hidden" name="newsType.newsTypeId" value="${newsType.newsTypeId}" /> <input type="hidden" name="newsType.newsTypeName" value="${newsType.newsTypeName}" /> <input type="hidden" name="user.userId" value="${user.userId}" /> <input type="hidden" name="newsId" value="${uuid}" />
+										<input type="hidden" name="newsType.newsTypeId" value="${newsType.newsTypeId}" /> <input type="hidden" name="newsType.newsTypeName" value="${newsType.newsTypeName}" /> <input type="hidden" name="user.userId" value="${user.userId}" />
+										 <input type="hidden" name="newsId" value="${uuid}" />
 									</fieldset>
 									<fieldset title="照片信息处理">
-										<legend style="color:red">请设置   4:3 比例</legend>
-										<div class="form-group">
+										<legend>image imformation</legend>
+										<label class="col-md-2 col-sm-2 control-label">上传结果预览： <br>
+										<span style="color: red">请设置比例为4：3</span>
+										</label>
+										<div class="col-md-10 col-sm-10">
 											<c:set var="myWidth" value="800"></c:set>
 											<c:set var="myHeight" value="600"></c:set>
 											<%@include file="../share/share_js.jsp"%>
@@ -77,7 +81,7 @@
 										</div>
 									</fieldset>
 									<fieldset title="详细介绍">
-										<legend>Personal Information</legend>
+										<legend>Other Information</legend>
 										<div class="form-group">
 											<%@include file="../share/ueditor.jsp"%>
 										</div>

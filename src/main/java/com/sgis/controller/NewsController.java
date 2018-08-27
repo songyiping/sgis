@@ -78,6 +78,7 @@ public class NewsController {
 		newsType = newsTypeService.getNewsTypeById(n.getNewsType().getNewsTypeId());
 		map.addObject("newsType", newsType);
 		map.addObject("news", n);
+		map.addObject("uuid", n.getNewsId());
 		String url;
 		try {
 			url = newsType.getEditFile().getUrl();

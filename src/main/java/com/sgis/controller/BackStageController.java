@@ -29,7 +29,7 @@ public class BackStageController {
 	@Resource(name="systemFileService")
 	private SystemFileService systemFileService;
 	
-	private static int pageSize = 10;
+	private static int pageSize = 20;
     NewsType newsType ;
 	
 	

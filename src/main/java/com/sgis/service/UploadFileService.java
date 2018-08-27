@@ -9,7 +9,7 @@ public interface UploadFileService {
 	
 	public UploadFile getUploadFileById(String id) throws Exception;
 	
-	
+	public List<UploadFile> getUploadFileByNewsId(String id) throws Exception;
 	public void addUploadFile(UploadFile uploadFile) throws Exception;
 	
 	

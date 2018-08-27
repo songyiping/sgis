@@ -29,7 +29,7 @@ public class UploadFileServiceImpl implements UploadFileService {
 
 
 	public void delUploadFile(String id) throws Exception {
-		uploadFileDao.delUploadFile(id);
+		 uploadFileDao.delUploadFile(id);
 	}
 
 	
@@ -40,5 +40,11 @@ public class UploadFileServiceImpl implements UploadFileService {
 
 	public List<UploadFile> getUploadFile(UploadFile uploadFile) throws Exception{
 		return uploadFileDao.getUploadFile(uploadFile);
+	}
+
+
+	@Override
+	public List<UploadFile> getUploadFileByNewsId(String id) throws Exception {
+		return uploadFileDao.getUploadFileByNewsId(id);	
 	}
 }

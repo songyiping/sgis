@@ -200,7 +200,7 @@
 						<span>普钢板块</span>
 					</h2>
 					<p>ORDINERY STEEL</p>
-					<a href="${basepath}/list/b1.do" target="_blank">View more</a>
+					<a href="${basepath}/list/ba.do" target="_blank">View more</a>
 				</figcaption>
 			</figure>
 			<figure class="effect-bubba">
@@ -210,7 +210,7 @@
 						<span>特钢板块</span>
 					</h2>
 					<p>SPECIAL STEEL</p>
-					<a href="${basepath}/list/b2.do" target="_blank">View more</a>
+					<a href="${basepath}/list/bb.do" target="_blank">View more</a>
 				</figcaption>
 			</figure>
 			<figure class="effect-bubba">
@@ -220,7 +220,7 @@
 						<span>多元板块</span>
 					</h2>
 					<p>MULTIPLE DOMIAN</p>
-					<a href="${basepath}/list/b3.do" target="_blank">View more</a>
+					<a href="${basepath}/list/bc.do" target="_blank">View more</a>
 				</figcaption>
 			</figure>
 		</div>
@@ -452,7 +452,7 @@
 					type : "post",
 					dataType : "json",
 					url : '${basepath}/userQuestion/submitUserQuestion.do',
-					data : "name=" + escape(name) + "&email=" + escape(email) + "&text=" + escape(text) + "&checkCode=" + escape(checkCode),
+					data : "name=" + name + "&email=" + email + "&text=" + text + "&checkCode=" + checkCode,
 					success : function(msg) {
 						if (msg.result == "password_success") {
 							document.getElementById("messBox").innerHTML = "提交成功，感谢您的宝贵意见和建议！";

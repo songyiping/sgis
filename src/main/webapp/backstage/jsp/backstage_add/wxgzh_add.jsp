@@ -79,7 +79,7 @@
 									<fieldset title="导航图片处理">
 										<legend>image imformation</legend>
 										<label class="col-md-2 col-sm-2 control-label">上传结果预览：
-										<br><legend style="color: red">请设置比例为16：9</legend>
+										<br><span style="color: red">请设置比例为16：9</span>
 										</label>
 										<div class="col-md-10 col-sm-10">
 										
